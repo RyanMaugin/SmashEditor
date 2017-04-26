@@ -23,6 +23,12 @@ public class EditorWidget {
 
         // Create menu option elements
         final Menu fileMenuOption = new Menu("File");
+        MenuItem fileNewItem = new MenuItem("New");
+        MenuItem fileOpenItem = new MenuItem("Open");
+        MenuItem fileSaveItem = new MenuItem("Save");
+        MenuItem fileRenameItem = new MenuItem("Rename");
+        fileMenuOption.getItems().addAll(fileNewItem, fileOpenItem, fileSaveItem, fileRenameItem);
+
         final Menu editMenuOption = new Menu("Edit");
         final Menu toolsMenuOption = new Menu("Tools");
         final Menu helpMenuOption = new Menu("Help");

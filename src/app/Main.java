@@ -4,6 +4,7 @@ import app.classes.EditorWidget;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -18,8 +19,12 @@ public class Main extends Application {
         // Set root window structure as border pane
         BorderPane root = new BorderPane();
 
-        // Add menu bar
-        EditorWidget.menuToolBar(root);
+        // Vertical Box to hold elements stacked vertically
+        VBox verticalBox = new VBox();
+        // Set all elements inside vertical box that need to be stacked top down
+        verticalBox.getChildren().addAll(EditorWidget.menuToolBar(root), EditorWidget.editingToolBar(root));
+        // Set vertical box to top of border pane
+        root.setTop(verticalBox);
 
         // Configure window
         primaryStage.setTitle("Smash Editor");

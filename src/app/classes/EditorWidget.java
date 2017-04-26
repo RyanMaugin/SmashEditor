@@ -1,9 +1,11 @@
 package app.classes;
 
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
+import javafx.geometry.Insets;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * SmashEditor
@@ -16,8 +18,9 @@ public class EditorWidget {
      * Menu Toolbar
      * The top most toolbar in application
      * @param root is the window root layout
+     * @return MenuBar - this will return the created component
      */
-    public static void menuToolBar(BorderPane root) {
+    public static MenuBar menuToolBar(BorderPane root) {
         // Created menu bar
         MenuBar menuBar = new MenuBar();
 
@@ -53,8 +56,9 @@ public class EditorWidget {
 
         // Add all menu options to menu bar
         menuBar.getMenus().setAll(fileMenuOption, editMenuOption, toolsMenuOption, helpMenuOption);
-        // Set the menu bar to the top of the frame border pane
-        root.setTop(menuBar);
+
+        // Return the created Menu Bar
+        return menuBar;
     }
 
 
@@ -63,9 +67,31 @@ public class EditorWidget {
      * This will be the toolbar which handles all the text customisation features like bold,
      * underlining and font size etc
      * @param root is the window root layout
+     * @return ToolBar - this will return the created component
      */
-    public static void editingToolBar(BorderPane root) {
+    public static ToolBar editingToolBar(BorderPane root) {
+        // Create tool bar
+        ToolBar editingToolBar = new ToolBar();
 
+        // ---------- Create Bar ToggleElements
+        ToggleButton boldToggle = new ToggleButton("B");
+        ToggleButton italicToggle = new ToggleButton("I");
+        ToggleButton underlineToggle = new ToggleButton("U");
+
+        // ---------- Create font size combo box (limit font size 1 - 32)
+        ComboBox<String> fontSizeComboBox = new ComboBox<>();
+        fontSizeComboBox.setPromptText("Font size"); // Placeholder for combo box
+        // Populate combo box with font size items
+        List<String> fontSizeComboBoxItems = new ArrayList<>();
+        for (int x = 0; x < 33; x++) { fontSizeComboBoxItems.add(Integer.toString(x)); }
+        // Set all font size items to combo box
+        fontSizeComboBox.getItems().addAll(fontSizeComboBoxItems);
+
+        // Add Toggles to editing toolbar
+        editingToolBar.getItems().addAll(boldToggle, italicToggle, underlineToggle, fontSizeComboBox);
+
+        // Return editing tool bar
+        return editingToolBar;
     }
 
 }

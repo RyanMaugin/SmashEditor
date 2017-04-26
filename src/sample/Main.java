@@ -1,18 +1,25 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    /**
+     * Start function wil run when application is run/initialised
+     * @param primaryStage is the window itself
+     * @throws Exception is what this function will throw if there is an error
+     */
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+    public void start(Stage primaryStage) throws Exception {
+        // Set root window structure as border pane
+        BorderPane root = new BorderPane();
+
+        // Configure window
+        primaryStage.setTitle("Smash Editor");
+        primaryStage.setScene(new Scene(root, 700, 475));
         primaryStage.show();
     }
 

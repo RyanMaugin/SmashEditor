@@ -15,7 +15,7 @@ public class EditorWidget {
     /**
      * Menu Toolbar
      * The top most toolbar in application
-     * @param root
+     * @param root is the window root layout
      */
     public static void menuToolBar(BorderPane root) {
         // Created menu bar
@@ -55,6 +55,17 @@ public class EditorWidget {
         menuBar.getMenus().setAll(fileMenuOption, editMenuOption, toolsMenuOption, helpMenuOption);
         // Set the menu bar to the top of the frame border pane
         root.setTop(menuBar);
+    }
+
+
+    /**
+     * EditingToolBar
+     * This will be the toolbar which handles all the text customisation features like bold,
+     * underlining and font size etc
+     * @param root is the window root layout
+     */
+    public static void editingToolBar(BorderPane root) {
+
     }
 
 }

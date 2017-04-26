@@ -73,22 +73,36 @@ public class EditorWidget {
         // Create tool bar
         ToolBar editingToolBar = new ToolBar();
 
+        //
         // ---------- Create Bar ToggleElements
+        //
         ToggleButton boldToggle = new ToggleButton("B");
         ToggleButton italicToggle = new ToggleButton("I");
         ToggleButton underlineToggle = new ToggleButton("U");
 
+        //
         // ---------- Create font size combo box (limit font size 1 - 32)
+        //
         ComboBox<String> fontSizeComboBox = new ComboBox<>();
-        fontSizeComboBox.setPromptText("Font size"); // Placeholder for combo box
+        // Placeholder for combo box
+        fontSizeComboBox.setPromptText("Font size");
         // Populate combo box with font size items
         List<String> fontSizeComboBoxItems = new ArrayList<>();
         for (int x = 0; x < 33; x++) { fontSizeComboBoxItems.add(Integer.toString(x)); }
         // Set all font size items to combo box
         fontSizeComboBox.getItems().addAll(fontSizeComboBoxItems);
 
+        //
+        // ---------- Create Alignment combo box
+        //
+        ComboBox<String> alignmentComboBox = new ComboBox<>();
+        // Placeholder for combo box
+        alignmentComboBox.setPromptText("Alignment");
+        // Add all alignments and populate alignmentComboBox
+        alignmentComboBox.getItems().addAll("Left", "Center", "Right");
+
         // Add Toggles to editing toolbar
-        editingToolBar.getItems().addAll(boldToggle, italicToggle, underlineToggle, fontSizeComboBox);
+        editingToolBar.getItems().addAll(boldToggle, italicToggle, underlineToggle, fontSizeComboBox, alignmentComboBox);
 
         // Return editing tool bar
         return editingToolBar;

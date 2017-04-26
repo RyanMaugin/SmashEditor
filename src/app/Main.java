@@ -1,5 +1,6 @@
 package app;
 
+import app.classes.EditorWidget;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -16,6 +17,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         // Set root window structure as border pane
         BorderPane root = new BorderPane();
+
+        // Add menu bar
+        EditorWidget.menuToolBar(root);
 
         // Configure window
         primaryStage.setTitle("Smash Editor");

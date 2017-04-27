@@ -108,4 +108,25 @@ public class EditorWidget {
         return editingToolBar;
     }
 
+
+    /**
+     * Stats Footer
+     * @param root is the window root layout
+     * @return created footer stats toolbar which shows meta data
+     */
+    public static ToolBar statsFooter(BorderPane root) {
+        // Create toolbar
+        ToolBar footerBar = new ToolBar();
+
+        // Create toolbar label elements
+        Label lineNumber = new Label("Line 1,");
+        Label columnNumber = new Label("Column 3");
+
+        // Add label elements to toolbar
+        footerBar.getItems().addAll(lineNumber, columnNumber);
+
+        // Return created footer toolbar
+        return footerBar;
+    }
+
 }

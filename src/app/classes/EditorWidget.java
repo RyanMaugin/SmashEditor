@@ -1,6 +1,7 @@
 package app.classes;
 
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 
@@ -126,6 +127,7 @@ public class EditorWidget {
 
         // Set size of editor text area
         editorTextArea.setPrefSize(Double.MAX_VALUE, 400);
+        editorTextArea.setPromptText("Enter text here...");
         editorTextArea.setWrapText(true);
 
         // Return editor text area

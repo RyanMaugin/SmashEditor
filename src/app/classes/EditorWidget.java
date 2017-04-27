@@ -25,6 +25,12 @@ public class EditorWidget {
         MenuBar menuBar = new MenuBar();
 
         // ---------- Create menu option elements
+        // 'Smash Editor' Menu Option
+        final Menu mainMenuOption = new Menu("Smash Editor");
+        MenuItem mainContactDevItem = new MenuItem("Contact Developer");
+        MenuItem mainFeedbackItem = new MenuItem("Feedback");
+        mainMenuOption.getItems().addAll(mainFeedbackItem, mainContactDevItem);
+
         // 'File' Menu Option
         final Menu fileMenuOption = new Menu("File");
         MenuItem fileNewItem = new MenuItem("New");
@@ -55,7 +61,7 @@ public class EditorWidget {
         helpMenuOption.getItems().addAll(helpCreditItem, helpSupportUsItem, helpGithubItem);
 
         // Add all menu options to menu bar
-        menuBar.getMenus().setAll(fileMenuOption, editMenuOption, toolsMenuOption, helpMenuOption);
+        menuBar.getMenus().setAll(mainMenuOption, fileMenuOption, editMenuOption, toolsMenuOption, helpMenuOption);
 
         // Return the created Menu Bar
         return menuBar;

@@ -24,17 +24,16 @@ public class Main extends Application {
         // Set all elements inside vertical box that need to be stacked top down
         verticalBox.getChildren().addAll(
                 EditorWidget.menuToolBar(root),
-                EditorWidget.editingToolBar(root)
+                EditorWidget.editingToolBar(root),
+                EditorWidget.editor(root),
+                EditorWidget.statsFooter(root)
         );
         // Set vertical box to top of border pane
         root.setTop(verticalBox);
 
-        // Add stats footer to bottom of border pane as footer
-        root.setBottom(EditorWidget.statsFooter(root));
-
         // Configure window
         primaryStage.setTitle("Smash Editor");
-        primaryStage.setScene(new Scene(root, 700, 475));
+        primaryStage.setScene(new Scene(root, 700, 495));
         primaryStage.show();
     }
 

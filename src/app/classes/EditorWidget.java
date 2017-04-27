@@ -110,6 +110,24 @@ public class EditorWidget {
 
 
     /**
+     * Editor (Text Area)
+     * @param root is the window root layout
+     * @return Text Area
+     */
+    public static TextArea editor(BorderPane root) {
+        // Create Editor TextArea
+        TextArea editorTextArea = new TextArea();
+
+        // Set size of editor text area
+        editorTextArea.setPrefSize(Double.MAX_VALUE, 400);
+        editorTextArea.setWrapText(true);
+
+        // Return editor text area
+        return editorTextArea;
+    }
+
+
+    /**
      * Stats Footer
      * @param root is the window root layout
      * @return created footer stats toolbar which shows meta data

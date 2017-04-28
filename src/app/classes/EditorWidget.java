@@ -1,7 +1,5 @@
 package app.classes;
 
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 
@@ -143,6 +141,7 @@ public class EditorWidget {
     public static ToolBar statsFooter(BorderPane root) {
         // Create toolbar
         ToolBar footerBar = new ToolBar();
+        footerBar.setId("toolbar");
 
         // Create toolbar label elements
         Label lineNumber = new Label("Line 1,");

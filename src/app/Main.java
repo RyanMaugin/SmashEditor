@@ -31,6 +31,11 @@ public class Main extends Application {
         // Set vertical box to top of border pane
         root.setTop(verticalBox);
 
+        // ---------- Set Stylesheets
+        root.getStylesheets().addAll(
+                getClass().getResource("assets/StatsToolbar.css").toExternalForm()
+        );
+
         // Configure window
         primaryStage.setTitle("Smash Editor");
         primaryStage.setScene(new Scene(root, 700, 495));

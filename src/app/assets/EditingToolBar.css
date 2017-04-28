@@ -7,14 +7,10 @@
     -fx-background-color: rgb(242, 242, 242);
 }
 
-#editingToolbar .toggle-button {
+#editingToolbar .button, #editingToolbar .toggle-button, #editingToolbar .combo-box {
     -fx-background-color: rgb(242, 242, 242);
 }
 
-#editingToolbar .toggle-button:selected {
+#editingToolbar .toggle-button:selected, #editingToolbar .button:pressed {
     -fx-background-color: rgb(200, 200, 200);
-}
-
-#editingToolbar .combo-box {
-    -fx-background-color: rgb(242, 242, 242);
 }

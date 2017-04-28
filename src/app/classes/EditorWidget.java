@@ -1,5 +1,6 @@
 package app.classes;
 
+import javafx.geometry.Orientation;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 
@@ -81,11 +82,19 @@ public class EditorWidget {
         editingToolBar.setId("editingToolbar");
 
         //
+        // ---------- Create Redo and Undo
+        //
+        Button undoButton = new Button("Undo");
+        Button redoButton = new Button("Redo");
+
+        //
         // ---------- Create Bar ToggleElements
         //
+        Separator toggleElementsTopSeparator = new Separator(Orientation.VERTICAL);
         ToggleButton boldToggle = new ToggleButton("B");
         ToggleButton italicToggle = new ToggleButton("I");
         ToggleButton underlineToggle = new ToggleButton("U");
+        Separator toggleElementsBottomSeparator = new Separator(Orientation.VERTICAL);
 
         //
         // ---------- Create font size combo box (limit font size 1 - 32)
@@ -108,8 +117,12 @@ public class EditorWidget {
         // Add all alignments and populate alignmentComboBox
         alignmentComboBox.getItems().addAll("Left", "Center", "Right");
 
-        // Add Toggles to editing toolbar
-        editingToolBar.getItems().addAll(boldToggle, italicToggle, underlineToggle, fontSizeComboBox, alignmentComboBox);
+        // Add all created elements to editing tool bar in order
+        editingToolBar.getItems().addAll(
+                redoButton, undoButton,
+                toggleElementsTopSeparator, boldToggle, italicToggle, underlineToggle, toggleElementsBottomSeparator,
+                fontSizeComboBox, alignmentComboBox
+        );
 
         // Return editing tool bar
         return editingToolBar;

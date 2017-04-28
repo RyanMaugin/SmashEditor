@@ -4,8 +4,7 @@
  */
 
 #statsToolbar {
-    -mid-red: rgb(33,33,33);
-    -fx-background-color: -mid-red;
+    -fx-background-color: rgb(57,73,171);
 }
 
 Label {

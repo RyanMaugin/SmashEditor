@@ -34,12 +34,13 @@ public class Main extends Application {
         // ---------- Set Stylesheets
         root.getStylesheets().addAll(
                 getClass().getResource("assets/StatsToolbar.css").toExternalForm(),
-                getClass().getResource("assets/MenuToolbar.css").toExternalForm()
+                getClass().getResource("assets/MenuToolbar.css").toExternalForm(),
+                getClass().getResource("assets/EditingToolBar.css").toExternalForm()
         );
 
         // Configure window
         primaryStage.setTitle("Smash Editor");
-        primaryStage.setScene(new Scene(root, 700, 495));
+        primaryStage.setScene(new Scene(root, 700, 500));
         primaryStage.show();
     }
 

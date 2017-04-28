@@ -78,6 +78,7 @@ public class EditorWidget {
     public static ToolBar editingToolBar(BorderPane root) {
         // Create tool bar
         ToolBar editingToolBar = new ToolBar();
+        editingToolBar.setId("editingToolbar");
 
         //
         // ---------- Create Bar ToggleElements

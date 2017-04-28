@@ -3,7 +3,7 @@
  * StatsToolBar Stylesheet
  */
 
-#toolbar {
+#statsToolbar {
     -mid-red: rgb(33,33,33);
     -fx-background-color: -mid-red;
 }

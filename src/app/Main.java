@@ -33,7 +33,8 @@ public class Main extends Application {
 
         // ---------- Set Stylesheets
         root.getStylesheets().addAll(
-                getClass().getResource("assets/StatsToolbar.css").toExternalForm()
+                getClass().getResource("assets/StatsToolbar.css").toExternalForm(),
+                getClass().getResource("assets/MenuToolbar.css").toExternalForm()
         );
 
         // Configure window

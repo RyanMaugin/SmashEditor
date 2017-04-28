@@ -1,0 +1,13 @@
+/**
+ * Menu Tool Bar
+ * MenuToolbar Styling
+ */
+
+#menuBar {
+    -fx-background-color: rgb(33,33,33);
+}
+
+#menuBar .label {
+    -fx-text-fill: rgb(255, 255, 255);
+}
+

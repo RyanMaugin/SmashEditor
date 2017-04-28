@@ -22,6 +22,7 @@ public class EditorWidget {
     public static MenuBar menuToolBar(BorderPane root) {
         // Created menu bar
         MenuBar menuBar = new MenuBar();
+        menuBar.setId("menuBar");
 
         // ---------- Create menu option elements
         // 'Smash Editor' Menu Option
@@ -141,7 +142,7 @@ public class EditorWidget {
     public static ToolBar statsFooter(BorderPane root) {
         // Create toolbar
         ToolBar footerBar = new ToolBar();
-        footerBar.setId("toolbar");
+        footerBar.setId("statsToolbar");
 
         // Create toolbar label elements
         Label lineNumber = new Label("Line 1,");

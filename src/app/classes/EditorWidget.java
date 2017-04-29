@@ -1,9 +1,12 @@
 package app.classes;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.web.HTMLEditor;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,13 +18,18 @@ import java.util.List;
  */
 public class EditorWidget {
 
+
+    // Create Editor TextArea
+    static HTMLEditor editorTextArea = new HTMLEditor();
+
+
     /**
      * Menu Toolbar
      * The top most toolbar in application
      * @param root is the window root layout
      * @return MenuBar - this will return the created component
      */
-    public static MenuBar menuToolBar(BorderPane root) {
+    public static MenuBar menuToolBar(BorderPane root, Stage stage) {
         // Created menu bar
         MenuBar menuBar = new MenuBar();
         menuBar.setId("menuBar");
@@ -37,6 +45,7 @@ public class EditorWidget {
         final Menu fileMenuOption = new Menu("File");
         MenuItem fileNewItem = new MenuItem("New");
         MenuItem fileOpenItem = new MenuItem("Open");
+        fileOpenItem.setOnAction(event -> EditorFileHandler.open(stage, editorTextArea));
         MenuItem fileSaveItem = new MenuItem("Save");
         MenuItem fileRenameItem = new MenuItem("Rename");
         fileMenuOption.getItems().addAll(fileNewItem, fileOpenItem, fileSaveItem, fileRenameItem);
@@ -136,13 +145,8 @@ public class EditorWidget {
      * @return Text Area
      */
     public static HTMLEditor editor(BorderPane root) {
-        // Create Editor TextArea
-        HTMLEditor editorTextArea = new HTMLEditor();
-
         // Set size of editor text area
-        editorTextArea.setPrefSize(Double.MAX_VALUE, 400);
-
-        // Return editor text area
+        editorTextArea.setPrefSize(Double.MAX_VALUE, 440);
         return editorTextArea;
     }
 

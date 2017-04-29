@@ -24,7 +24,7 @@ public class Main extends Application {
         // Set all elements inside vertical box that need to be stacked top down
         verticalBox.getChildren().addAll(
                 EditorWidget.menuToolBar(root),
-                EditorWidget.editingToolBar(root),
+                // EditorWidget.editingToolBar(root),
                 EditorWidget.editor(root),
                 EditorWidget.statsFooter(root)
         );
@@ -40,7 +40,7 @@ public class Main extends Application {
 
         // Configure window
         primaryStage.setTitle("Smash Editor");
-        primaryStage.setScene(new Scene(root, 700, 500));
+        primaryStage.setScene(new Scene(root, 700, 464));
         primaryStage.show();
     }
 

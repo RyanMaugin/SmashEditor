@@ -3,6 +3,7 @@ package app.classes;
 import javafx.geometry.Orientation;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.web.HTMLEditor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -134,14 +135,12 @@ public class EditorWidget {
      * @param root is the window root layout
      * @return Text Area
      */
-    public static TextArea editor(BorderPane root) {
+    public static HTMLEditor editor(BorderPane root) {
         // Create Editor TextArea
-        TextArea editorTextArea = new TextArea();
+        HTMLEditor editorTextArea = new HTMLEditor();
 
         // Set size of editor text area
         editorTextArea.setPrefSize(Double.MAX_VALUE, 400);
-        editorTextArea.setPromptText("Enter text here...");
-        editorTextArea.setWrapText(true);
 
         // Return editor text area
         return editorTextArea;

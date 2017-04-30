@@ -19,7 +19,7 @@ This project deploys the smash editor application as an executable `.jar` file l
 5. Finally, you can run the application by entering the command: `java Main` when the previous command is done running.
 
 # Goals
-- [ ] Make a basic and functioning text editor
+- [x] Make a basic and functioning text editor
 - [ ] Support for markdown
 - [ ] Support for code
 - [ ] Make it look cool & slick (material design)

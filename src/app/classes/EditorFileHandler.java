@@ -4,7 +4,7 @@ import javafx.scene.web.HTMLEditor;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.File;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -16,6 +16,10 @@ import java.util.List;
  * Created by Ryan on 26/04/2017.
  */
 public class EditorFileHandler {
+
+
+    static String savePath = null;
+
 
     /**
      * Open File
@@ -34,6 +38,7 @@ public class EditorFileHandler {
         if (file != null) {
             try {
                 editor.setHtmlText(getOpenedFileContent(file));
+                savePath = file.toString();
             } catch (Exception exception) {
                 System.out.println(exception);
             }
@@ -47,8 +52,24 @@ public class EditorFileHandler {
      * @return content of opened file
      */
     public static String getOpenedFileContent(File file) throws Exception {
+        // convert file content to byte array
         byte[] encoded = Files.readAllBytes(Paths.get(file.toURI()));
+        // return string of data in file
         return new String(encoded, StandardCharsets.UTF_8);
+    }
+
+
+    public static void save(String content) {
+
+        // If there is a save path because you are saving a file you opened
+        if (savePath != null) {
+            try (PrintWriter out = new PrintWriter(savePath)) {
+                out.println(content);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
 }

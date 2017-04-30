@@ -42,6 +42,7 @@ public class EditorWidget {
         // 'File' Menu Option
         final Menu fileMenuOption = new Menu("File");
         MenuItem fileNewItem = new MenuItem("New");
+        fileNewItem.setOnAction(event -> EditorFileHandler.newFile());
         MenuItem fileOpenItem = new MenuItem("Open");
         fileOpenItem.setOnAction(event -> EditorFileHandler.open(stage, editorTextArea));
         MenuItem fileSaveItem = new MenuItem("Save");

@@ -69,11 +69,16 @@ public class EditorFileHandler {
 
         // If there is a save path because you are saving a file you opened
         if (savePath != null) {
+
             try (PrintWriter out = new PrintWriter(savePath)) {
                 out.println(content);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
+
+        // If there is no open file savePath then create a new file
+        } else {
+             newFile();
         }
     }
 
@@ -86,10 +91,7 @@ public class EditorFileHandler {
 
         if (savePath != null) {
             // Create new text input dialog to prompt user for new file name
-            TextInputDialog renameDialog = new TextInputDialog("newname");
-            renameDialog.setTitle("Rename File");
-            renameDialog.setHeaderText("Enter New Name");
-            renameDialog.setContentText("Enter new file name: ");
+            TextInputDialog renameDialog = promptUser("Rename File", "Enter New Name", "Enter new file name: ");
 
             // Get new file name response from text input dialog
             Optional<String> result = renameDialog.showAndWait();
@@ -116,6 +118,35 @@ public class EditorFileHandler {
 
 
     /**
+     * Create New File Method
+     */
+    public static void newFile() {
+        // Display prompt dialog window to user
+        TextInputDialog newfileDialog = promptUser("New File", "Create New File", "Enter new file name: ");
+
+        // Get result
+        Optional<String> result = newfileDialog.showAndWait();
+        result.ifPresent(name -> {
+
+            // Create new file and directory
+            try {
+                File newFile = new File("./archive/files/" + name);
+
+                // Create file directory if it doesn't exist
+                newFile.getParentFile().mkdirs();
+
+                // Alert user that file was successfully created
+                if (newFile.createNewFile()) {
+                    alertUser(Alert.AlertType.INFORMATION, "File Create", "Successfully Created New File", "You can find your successfully created file at path " + newFile.getPath());
+                }
+
+            } catch (Exception e) { e.printStackTrace(); }
+
+        });
+    }
+
+
+    /**
      * This is an alert method
      * @param alertType
      * @param title
@@ -128,6 +159,21 @@ public class EditorFileHandler {
         alert.setHeaderText(headerText);
         alert.setContentText(contentText);
         alert.showAndWait();
+    }
+
+    /**
+     * Prompt User Method
+     * This will display a text input dialog
+     * @param title
+     * @param header
+     * @param context
+     */
+    public static TextInputDialog promptUser(String title, String header, String context) {
+        TextInputDialog promptDialog = new TextInputDialog("newname");
+        promptDialog.setTitle(title);
+        promptDialog.setHeaderText(header);
+        promptDialog.setContentText(context);
+        return promptDialog;
     }
 
 }

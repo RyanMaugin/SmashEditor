@@ -49,6 +49,7 @@ public class EditorWidget {
         MenuItem fileSaveItem = new MenuItem("Save");
         fileSaveItem.setOnAction(event -> EditorFileHandler.save(editorTextArea.getHtmlText()));
         MenuItem fileRenameItem = new MenuItem("Rename");
+        fileRenameItem.setOnAction(event -> EditorFileHandler.rename());
         fileMenuOption.getItems().addAll(fileNewItem, fileOpenItem, fileSaveItem, fileRenameItem);
 
         // 'Edit' Menu Option

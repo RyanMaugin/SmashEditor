@@ -3,6 +3,7 @@ package app;
 import app.classes.EditorWidget;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -40,6 +41,7 @@ public class Main extends Application {
 
         // Configure window
         primaryStage.setTitle("Smash Editor");
+        primaryStage.getIcons().add(new Image(getClass().getResource("assets/images/smashEditorLogo.png").toExternalForm()));
         primaryStage.setScene(new Scene(root, 700, 504));
         primaryStage.show();
     }

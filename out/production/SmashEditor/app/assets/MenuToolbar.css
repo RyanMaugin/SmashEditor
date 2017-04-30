@@ -9,7 +9,12 @@
 
 #menuBar .label {
     -fx-text-fill: rgb(255, 255, 255);
-    -fx-padding: 4 4 4 4;
+    -fx-padding: 4 8 4 8;
+}
+
+#menuBar #mainMenuOption .label {
+    -fx-font-family: 'sans-serif';
+    -fx-font-weight: bold;
 }
 
 .menu-item .label {

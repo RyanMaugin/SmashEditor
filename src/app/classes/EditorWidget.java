@@ -35,6 +35,7 @@ public class EditorWidget {
         // ---------- Create menu option elements
         // 'Smash Editor' Menu Option
         final Menu mainMenuOption = new Menu("Smash Editor");
+        mainMenuOption.setId("mainMenuOption");
         MenuItem mainContactDevItem = new MenuItem("Contact Developer");
         MenuItem mainFeedbackItem = new MenuItem("Feedback");
         mainMenuOption.getItems().addAll(mainFeedbackItem, mainContactDevItem);

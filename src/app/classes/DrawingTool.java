@@ -15,9 +15,10 @@ public class DrawingTool {
 
     /**
      * Create Draw Tool Stage
-     * @param drawToolStage
      */
-    public void createDrawToolWindow(Stage drawToolStage) {
+    public static void createDrawToolWindow() {
+        // Create Stage
+        Stage drawToolStage = new Stage();
 
         // Create draw tool window root pane structure
         BorderPane root = new BorderPane();
@@ -29,7 +30,6 @@ public class DrawingTool {
 
         // Configure stage
         drawToolStage.setTitle("Smash Editor - Draw Tool");
-        drawToolStage.getIcons().add(new Image(getClass().getResource("assets/images/smashEditorLogo.png").toExternalForm()));
         drawToolStage.setScene(new Scene(root, 700, 504));
         drawToolStage.show();
     }

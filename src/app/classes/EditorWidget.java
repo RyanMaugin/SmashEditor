@@ -64,7 +64,9 @@ public class EditorWidget {
         final Menu toolsMenuOption = new Menu("Tools");
         MenuItem toolsWordCountItem = new MenuItem("Word Count");
         MenuItem toolsLineCountItem = new MenuItem("Line Count");
-        toolsMenuOption.getItems().addAll(toolsWordCountItem, toolsLineCountItem);
+        MenuItem toolsDrawToolItem = new MenuItem("Draw Tool");
+        toolsDrawToolItem.setOnAction(event -> DrawingTool.createDrawToolWindow());
+        toolsMenuOption.getItems().addAll(toolsDrawToolItem, toolsWordCountItem, toolsLineCountItem);
 
         // 'Help' Menu Option
         final Menu helpMenuOption = new Menu("Help");

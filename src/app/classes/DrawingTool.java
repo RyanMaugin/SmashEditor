@@ -1,5 +1,6 @@
 package app.classes;
 
+import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -7,6 +8,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Separator;
 import javafx.scene.control.ToolBar;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -33,7 +35,8 @@ public class DrawingTool {
         VBox verticalBox = new VBox();
         verticalBox.getChildren().addAll(
                 // Add all components here
-                drawToolBar()
+                drawToolBar(),
+                createCanvas()
         );
         root.setTop(verticalBox);
 
@@ -54,11 +57,9 @@ public class DrawingTool {
         // Create elements for tool bar
         Button saveButton = new Button("Save");
         Separator saveSeparator = new Separator(Orientation.VERTICAL);
-        Button undoButon = new Button("Undo");
-        Button redoButton = new Button("Redo");
 
         // Add elements to tool bar
-        drawToolBar.getItems().addAll(saveButton, saveSeparator, undoButon, redoButton);
+        drawToolBar.getItems().addAll(saveButton, saveSeparator);
 
         return drawToolBar;
     }
@@ -67,11 +68,41 @@ public class DrawingTool {
     /**
      * Create Canvas Method
      */
-    public static void createCanvas() {
+    public static Canvas createCanvas() {
         // Create canvas and get graphics context
-        Canvas canvas = new Canvas(Double.MAX_VALUE, Double.MAX_VALUE);
+        Canvas canvas = new Canvas(400, 400);
         final GraphicsContext graphicContext = canvas.getGraphicsContext2D();
         initialiseDrawing(graphicContext);
+
+        // Add on click event for canvas drawing
+        canvas.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                graphicContext.beginPath();
+                graphicContext.moveTo(event.getX(), event.getY());
+                graphicContext.stroke();
+            }
+        });
+
+        // Add on drag handler for drawing line in canvas
+        canvas.addEventHandler(MouseEvent.MOUSE_DRAGGED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                graphicContext.lineTo(event.getX(), event.getY());
+                graphicContext.stroke();
+            }
+        });
+
+        // This breaks line on canvas
+        canvas.addEventHandler(MouseEvent.MOUSE_RELEASED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                // Do nothing in order to break line
+                graphicContext.closePath();
+            }
+        });
+
+        return canvas;
     }
 
 

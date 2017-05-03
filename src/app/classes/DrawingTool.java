@@ -7,6 +7,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Separator;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -57,9 +58,11 @@ public class DrawingTool {
         // Create elements for tool bar
         Button saveButton = new Button("Save");
         Separator saveSeparator = new Separator(Orientation.VERTICAL);
+        TextField widthOfCanvas = new TextField("400");
+        TextField heightOfCanvas = new TextField("400");
 
         // Add elements to tool bar
-        drawToolBar.getItems().addAll(saveButton, saveSeparator);
+        drawToolBar.getItems().addAll(saveButton, saveSeparator, widthOfCanvas, heightOfCanvas);
 
         return drawToolBar;
     }

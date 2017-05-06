@@ -22,6 +22,12 @@ import javafx.stage.Stage;
  */
 public class DrawingTool {
 
+
+    // Create canvas and get graphics context
+    static Canvas canvas = new Canvas(400, 400);
+    static final GraphicsContext graphicContext = canvas.getGraphicsContext2D();
+
+
     /**
      * Create Draw Tool Stage
      */
@@ -62,7 +68,8 @@ public class DrawingTool {
         TextField widthOfCanvas = new TextField("400");
         TextField heightOfCanvas = new TextField("400");
 
-        System.out.println(widthOfCanvas.focusedProperty().toString());
+        // Clear button
+        clearButton.setOnAction(event -> graphicContext.clearRect(0, 0, 400, 400));
 
         // Add elements to tool bar
         drawToolBar.getItems().addAll(saveButton, saveSeparator, clearButton, widthOfCanvas, heightOfCanvas);
@@ -75,9 +82,6 @@ public class DrawingTool {
      * Create Canvas Method
      */
     public static Canvas createCanvas() {
-        // Create canvas and get graphics context
-        Canvas canvas = new Canvas(400, 400);
-        final GraphicsContext graphicContext = canvas.getGraphicsContext2D();
         initialiseDrawing(graphicContext);
 
         // Add on click event for canvas drawing

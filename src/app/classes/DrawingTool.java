@@ -66,6 +66,13 @@ public class DrawingTool {
         TextField heightOfCanvas = new TextField("400");
         ColorPicker colorPicker = new ColorPicker();
 
+        ChoiceBox<String> strokeWidthPicker = new ChoiceBox<>();
+        strokeWidthPicker.setValue("1");
+        strokeWidthPicker.getItems().setAll("1", "2", "3", "4", "6", "8", "9", "10");
+
+        // Stroke Width Choice Box Event Handler
+        strokeWidthPicker.setOnAction(event -> graphicContext.setLineWidth(Integer.parseInt(strokeWidthPicker.getValue())));
+
         // Color picker event handler
         colorPicker.setOnAction(event -> graphicContext.setStroke(colorPicker.getValue()));
 
@@ -73,7 +80,7 @@ public class DrawingTool {
         clearButton.setOnAction(event -> graphicContext.clearRect(0, 0, 400, 400));
 
         // Add elements to tool bar
-        drawToolBar.getItems().addAll(saveButton, saveSeparator, clearButton, widthOfCanvas, heightOfCanvas, colorPicker);
+        drawToolBar.getItems().addAll(saveButton, saveSeparator, clearButton, widthOfCanvas, heightOfCanvas, colorPicker, strokeWidthPicker);
 
         return drawToolBar;
     }

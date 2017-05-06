@@ -5,10 +5,7 @@ import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
-import javafx.scene.control.Separator;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToolBar;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -67,12 +64,16 @@ public class DrawingTool {
         Separator saveSeparator = new Separator(Orientation.VERTICAL);
         TextField widthOfCanvas = new TextField("400");
         TextField heightOfCanvas = new TextField("400");
+        ColorPicker colorPicker = new ColorPicker();
+
+        // Color picker event handler
+        colorPicker.setOnAction(event -> graphicContext.setStroke(colorPicker.getValue()));
 
         // Clear button
         clearButton.setOnAction(event -> graphicContext.clearRect(0, 0, 400, 400));
 
         // Add elements to tool bar
-        drawToolBar.getItems().addAll(saveButton, saveSeparator, clearButton, widthOfCanvas, heightOfCanvas);
+        drawToolBar.getItems().addAll(saveButton, saveSeparator, clearButton, widthOfCanvas, heightOfCanvas, colorPicker);
 
         return drawToolBar;
     }
@@ -82,6 +83,7 @@ public class DrawingTool {
      * Create Canvas Method
      */
     public static Canvas createCanvas() {
+        // Create canvas and get graphics context
         initialiseDrawing(graphicContext);
 
         // Add on click event for canvas drawing
@@ -122,6 +124,7 @@ public class DrawingTool {
         gc.setFill(Color.LIGHTGREY);
         gc.setFill(Color.BLACK);
         gc.setLineWidth(1);
+        gc.setStroke(Color.BLACK);
         gc.fill();
         gc.strokeRect(0, 0, canvasWidth, canvasHeight);
     }

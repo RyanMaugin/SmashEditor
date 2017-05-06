@@ -57,12 +57,15 @@ public class DrawingTool {
 
         // Create elements for tool bar
         Button saveButton = new Button("Save");
+        Button clearButton = new Button("Clear");
         Separator saveSeparator = new Separator(Orientation.VERTICAL);
         TextField widthOfCanvas = new TextField("400");
         TextField heightOfCanvas = new TextField("400");
 
+        System.out.println(widthOfCanvas.focusedProperty().toString());
+
         // Add elements to tool bar
-        drawToolBar.getItems().addAll(saveButton, saveSeparator, widthOfCanvas, heightOfCanvas);
+        drawToolBar.getItems().addAll(saveButton, saveSeparator, clearButton, widthOfCanvas, heightOfCanvas);
 
         return drawToolBar;
     }
@@ -78,31 +81,24 @@ public class DrawingTool {
         initialiseDrawing(graphicContext);
 
         // Add on click event for canvas drawing
-        canvas.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                graphicContext.beginPath();
-                graphicContext.moveTo(event.getX(), event.getY());
-                graphicContext.stroke();
-            }
+        canvas.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            // begin PATH FRO LINE DRAWING
+            graphicContext.beginPath();
+            graphicContext.moveTo(event.getX(), event.getY());
+            graphicContext.stroke();
         });
 
         // Add on drag handler for drawing line in canvas
-        canvas.addEventHandler(MouseEvent.MOUSE_DRAGGED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                graphicContext.lineTo(event.getX(), event.getY());
-                graphicContext.stroke();
-            }
+        canvas.addEventHandler(MouseEvent.MOUSE_DRAGGED, event -> {
+            // Create line from where path created to where mouse is dragged
+            graphicContext.lineTo(event.getX(), event.getY());
+            graphicContext.stroke();
         });
 
         // This breaks line on canvas
-        canvas.addEventHandler(MouseEvent.MOUSE_RELEASED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                // Do nothing in order to break line
-                graphicContext.closePath();
-            }
+        canvas.addEventHandler(MouseEvent.MOUSE_EXITED, event -> {
+            // Do nothing in order to break line
+            graphicContext.beginPath();
         });
 
         return canvas;

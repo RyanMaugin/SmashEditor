@@ -21,13 +21,13 @@ This project deploys the smash editor application as an executable `.jar` file l
 # Goals
 - [x] Make a basic and functioning text editor
 - [ ] Support for markdown & code
-- [ ] Support Drawing
+- [x] Support Drawing
 - [x] Make it look cool & slick (material design)
 - [ ] Allow for it to be customised
 - [ ] Create a package and plugin feature
 
 # Author
-🤖 Ryan Maugin
+🤖 Ryan Maugin [Portfolio](https://ryanmaugin.github.io)
 
 🐦 @techedryan
 

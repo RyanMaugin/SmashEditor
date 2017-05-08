@@ -1,5 +1,7 @@
 # SmashEditor
 
+![alt](https://github.com/RyanMaugin/SmashEditor/blob/master/github_show.png)
+
 > Made in spare time while learning JavaFX.
 
 Text & Markup Editor Made in Java Using the JavaFX GUI Framework.
